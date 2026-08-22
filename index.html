@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit Kawach — Know Before You Extend Credit</title>
+<meta name="description" content="Credit Kawach gives suppliers a clear credit score and risk grade on their buyers before they extend trade credit.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230B2E4F%22/><path d=%22M50 20 L78 32 V52 C78 70 65 82 50 88 C35 82 22 70 22 52 V32 Z%22 fill=%22%2314B8A6%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 100 100"><path d="M50 8 L86 24 V50 C86 74 70 90 50 96 C30 90 14 74 14 50 V24 Z" fill="#0B2E4F"/><path d="M50 20 L74 31 V50 C74 67 62 79 50 84 C38 79 26 67 26 50 V31 Z" fill="#14B8A6"/></svg>
+      </span>
+      Credit Kawach
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
+      <a href="#how-it-works">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn btn-ghost" data-open-modal="login">Login</button>
+      <button class="btn btn-primary" data-open-modal="signup">Get Started</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#how-it-works">How it works</a>
+  <a href="#features">Features</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+  <div class="mobile-nav-actions">
+    <button class="btn btn-ghost" data-open-modal="login">Login</button>
+    <button class="btn btn-primary" data-open-modal="signup">Get Started</button>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">For suppliers who sell on credit</p>
+        <h1>Know they'll pay <span class="text-teal">before</span> you ship on credit.</h1>
+        <p class="hero-sub">Credit Kawach checks your buyer's credit history and hands you a plain risk grade, so extending credit stops being a guess and starts being a decision.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary btn-lg" data-open-modal="signup">Get Started</button>
+          <button class="btn btn-outline btn-lg" data-open-modal="login">Login</button>
+        </div>
+        <p class="hero-microcopy">First 10 credit checks are free. No card needed.</p>
+      </div>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="gauge-card">
+          <div class="gauge-card-label">Buyer risk grade</div>
+          <svg class="gauge" viewBox="0 0 220 140">
+            <path class="gauge-track" d="M20 120 A90 90 0 0 1 200 120" />
+            <path class="gauge-fill" d="M20 120 A90 90 0 0 1 200 120" />
+            <line class="gauge-needle" id="gaugeNeedle" x1="110" y1="120" x2="110" y2="45" />
+            <circle class="gauge-hub" cx="110" cy="120" r="7" />
+          </svg>
+          <div class="gauge-readout">
+            <span class="gauge-grade" id="gaugeGrade">A</span>
+            <span class="gauge-caption">Low risk · pays on time</span>
+          </div>
+        </div>
+        <div class="floating-chip chip-1">
+          <span class="dot dot-teal"></span> Score updated today
+        </div>
+        <div class="floating-chip chip-2">
+          <span class="dot dot-navy"></span> Synced with Tally
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM / SOLUTION -->
+  <section class="problem-solution">
+    <div class="split-panel panel-problem">
+      <div class="wrap panel-inner reveal">
+        <p class="eyebrow eyebrow-light">The problem</p>
+        <h2>You're extending credit on a hunch.</h2>
+        <p>Every time a buyer asks for thirty or sixty days to pay, you're making a bet. Say no and you lose the order. Say yes and hope for the best. Most suppliers say yes, because that's how you keep customers, and find out too late that the buyer was never going to pay on time, or at all. By then the goods are gone and chasing the money costs more than it's worth.</p>
+      </div>
+    </div>
+    <div class="split-panel panel-solution">
+      <div class="wrap panel-inner reveal">
+        <p class="eyebrow">The fix</p>
+        <h2>Credit Kawach turns the guess into a number.</h2>
+        <p>We pull your buyer's credit history and turn it into a plain risk grade before you extend a single rupee. You still set the terms and make the call. We just make sure you're making it with real information instead of a gut feeling and good intentions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2>Four steps, start to finish.</h2>
+      </div>
+
+      <div class="steps">
+        <svg class="steps-line" viewBox="0 0 1000 20" preserveAspectRatio="none" aria-hidden="true">
+          <path id="stepsPath" d="M20 10 H980" />
+        </svg>
+
+        <div class="step reveal">
+          <div class="step-num">1</div>
+          <h3>Sign up and complete KYC</h3>
+          <p>Create your account and verify your business. Takes a few minutes, not a few days.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">2</div>
+          <h3>Onboard a buyer</h3>
+          <p>Add the buyer you're about to extend credit to. Just their basic details, nothing complicated.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">3</div>
+          <h3>Get their credit score and risk grade</h3>
+          <p>We check their credit history and hand you a clear score and grade. No jargon, no guessing.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">4</div>
+          <h3>Extend credit with confidence</h3>
+          <p>Set your terms knowing exactly who you're dealing with, not who they say they are.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">What you get</p>
+        <h2>Everything you need to say yes with confidence.</h2>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg viewBox="0 0 48 48"><path d="M24 4 L40 12 V24 C40 34 33 42 24 44 C15 42 8 34 8 24 V12 Z" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M17 24 L22 29 L32 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Buyer credit scoring</h3>
+          <p>See a buyer's real creditworthiness before you extend an invoice, not after it's overdue.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg viewBox="0 0 48 48"><path d="M6 34 L16 22 L24 28 L42 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 10 H42 V20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Ongoing monitoring</h3>
+          <p>We keep watching after the first check, so you hear about rising risk before it turns into a default.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M24 15 V25 L31 30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Defaulter tracking</h3>
+          <p>Know upfront if a buyer has a history of not paying other suppliers back.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg viewBox="0 0 48 48"><rect x="6" y="6" width="36" height="36" rx="6" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M14 24 H34 M24 14 V34" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Tally integration</h3>
+          <p>Your credit data shows up right inside Tally, so there's no extra software to juggle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Pricing</p>
+        <h2>Pay for what you check. Nothing else.</h2>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="price-card reveal">
+          <h3>Free trial</h3>
+          <div class="price-amount">₹0</div>
+          <p class="price-desc">Your first 10 credit checks, on us. No card required, no catch.</p>
+          <ul class="price-list">
+            <li>10 free buyer credit checks</li>
+            <li>Full risk grade &amp; report</li>
+            <li>KYC and onboarding included</li>
+          </ul>
+          <button class="btn btn-outline btn-block" data-open-modal="signup">Start free</button>
+        </div>
+
+        <div class="price-card price-card-featured reveal">
+          <div class="price-badge">Most flexible</div>
+          <h3>Pay per check</h3>
+          <div class="price-amount">Pay as you go</div>
+          <p class="price-desc">After your free checks, pay only for the checks you actually run. No subscriptions, no minimums.</p>
+          <ul class="price-list">
+            <li>No monthly commitment</li>
+            <li>Ongoing risk monitoring</li>
+            <li>Tally sync included</li>
+          </ul>
+          <button class="btn btn-primary btn-block" data-open-modal="signup">Get Started</button>
+        </div>
+
+        <div class="price-card reveal">
+          <h3>Custom / Enterprise</h3>
+          <div class="price-amount">Let's talk</div>
+          <p class="price-desc">Running a high volume of checks? We'll put together a plan that actually fits it.</p>
+          <ul class="price-list">
+            <li>Volume-based pricing</li>
+            <li>Dedicated support</li>
+            <li>Custom integrations</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline btn-block">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions we get a lot.</h2>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Is our data actually secure with you?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Your data is encrypted in transit and at rest, and access is locked down to what each part of our system actually needs. We don't sell your data or your buyers' data to anyone, ever.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How do you use CIBIL data?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>We pull CIBIL data with proper consent to build the buyer's credit score and risk grade. It's used only to generate that report for you. We don't store more than we need, and we don't hand raw CIBIL data off to other suppliers or third parties.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Will the buyer know I checked their credit?
+          </button>
+          <div class="faq-answer">
+            <p>No. The check is run on your behalf and doesn't notify the buyer. It's meant to help you make a decision quietly, the same way you'd check a reference before signing a deal.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What happens after my 10 free checks?
+          </button>
+          <div class="faq-answer">
+            <p>You move to pay-per-check pricing automatically. There's no surprise subscription and nothing renews without you choosing to run another check.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap contact-inner">
+      <div class="contact-copy reveal">
+        <p class="eyebrow">Contact us</p>
+        <h2>Talk to a real person.</h2>
+        <p>Questions about how Credit Kawach works, feedback, or just want to know when it's live for you. Send us a message and we'll get back to you directly, no ticket number required.</p>
+        <p class="contact-direct">Prefer email? Write to us at <a href="mailto:support@creditkawach.com">support@creditkawach.com</a></p>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/ajax/support@creditkawach.com" method="POST">
+        <input type="hidden" name="_subject" value="New message from Credit Kawach marketing site">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <label for="cf-name">Name</label>
+        <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+
+        <label for="cf-email">Email</label>
+        <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
+
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+
+        <button type="submit" class="btn btn-primary btn-block" id="contactSubmit">Send message</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 100 100"><path d="M50 8 L86 24 V50 C86 74 70 90 50 96 C30 90 14 74 14 50 V24 Z" fill="#F2F7F6"/><path d="M50 20 L74 31 V50 C74 67 62 79 50 84 C38 79 26 67 26 50 V31 Z" fill="#14B8A6"/></svg>
+      </span>
+      <div>
+        <div class="footer-brand-name">Credit Kawach</div>
+        <div class="footer-brand-tagline">Confidence before credit.</div>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <a href="#contact">Contact Us</a>
+      <a href="#faq">Help / FAQ</a>
+    </div>
+
+    <p class="footer-copy">&copy; 2026 Credit Kawach. This is an informational site; the product is currently in development.</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-icon">
+      <svg viewBox="0 0 48 48"><path d="M24 4 L40 12 V24 C40 34 33 42 24 44 C15 42 8 34 8 24 V12 Z" fill="none" stroke="#0B2E4F" stroke-width="2.5"/><path d="M24 17 V26 M24 32 V32.5" stroke="#14B8A6" stroke-width="3" stroke-linecap="round"/></svg>
+    </div>
+    <h3 id="modalTitle">We're still building this part</h3>
+    <p>Credit Kawach isn't live for sign ups or logins just yet. Reach out to us and we'll get you set up personally as soon as it's ready.</p>
+    <a class="btn btn-primary btn-block" href="mailto:support@creditkawach.com?subject=Get%20me%20set%20up%20on%20Credit%20Kawach">Email support@creditkawach.com</a>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
