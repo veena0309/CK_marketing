@@ -35,32 +35,90 @@ const revealObserver = new IntersectionObserver(
 );
 revealTargets.forEach((el) => revealObserver.observe(el));
 
-// ---------- Steps connector line ----------
-const stepsWrap = document.querySelector('.steps');
-if (stepsWrap) {
-  const stepsObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          stepsObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-  stepsObserver.observe(stepsWrap);
+// ---------- Hero buyer risk report: tabs ----------
+const buyerReports = [
+  {
+    company: 'Sharma Textiles Pvt. Ltd.',
+    meta: 'GSTIN 27AAACS1234F1Z5 · Mumbai',
+    score: 742,
+    fillOffset: 55,
+    bars: [88, 81, 68],
+    grade: 'A · Low risk',
+    gradeRisky: false,
+    kycChip: 'KYC verified',
+    riskChip: 'Risk unchanged · 30d',
+  },
+  {
+    company: 'Mehta Traders',
+    meta: 'GSTIN 24AABCM5678K1Z2 · Ahmedabad',
+    score: 671,
+    fillOffset: 120,
+    bars: [70, 64, 72],
+    grade: 'B · Moderate risk',
+    gradeRisky: false,
+    kycChip: 'KYC verified',
+    riskChip: 'Risk unchanged · 30d',
+  },
+  {
+    company: 'Kulkarni Bros.',
+    meta: 'GSTIN 27AACCK4321P1Z9 · Pune',
+    score: 588,
+    fillOffset: 175,
+    bars: [52, 41, 58],
+    grade: 'D · High risk',
+    gradeRisky: true,
+    kycChip: 'KYC verified',
+    riskChip: 'Risk rising · 30d',
+  },
+];
+
+const reportTabs = document.getElementById('reportTabs');
+const reportCompany = document.getElementById('reportCompany');
+const reportMeta = document.getElementById('reportMeta');
+const gaugeFill = document.getElementById('gaugeFill');
+const gaugeScore = document.getElementById('gaugeScore');
+const reportBars = document.getElementById('reportBars');
+const reportGradeBadge = document.getElementById('reportGradeBadge');
+const chipKyc = document.getElementById('chipKyc');
+const chipRisk = document.getElementById('chipRisk');
+
+function renderBuyerReport(index) {
+  const data = buyerReports[index];
+  reportCompany.textContent = data.company;
+  reportMeta.textContent = data.meta;
+  gaugeScore.textContent = data.score;
+  gaugeFill.style.strokeDashoffset = String(data.fillOffset);
+  reportGradeBadge.textContent = data.grade;
+  reportGradeBadge.classList.toggle('grade-risky', data.gradeRisky);
+  chipKyc.lastChild.textContent = ' ' + data.kycChip;
+  chipRisk.lastChild.textContent = ' ' + data.riskChip;
+
+  const barFills = reportBars.querySelectorAll('.report-bar-fill');
+  const barNums = reportBars.querySelectorAll('.report-bar-num');
+  data.bars.forEach((val, i) => {
+    barFills[i].style.width = val + '%';
+    barNums[i].textContent = val;
+  });
 }
 
-// ---------- Hero gauge needle sweep ----------
+if (reportTabs) {
+  reportTabs.addEventListener('click', (e) => {
+    const tab = e.target.closest('.report-tab');
+    if (!tab) return;
+    reportTabs.querySelectorAll('.report-tab').forEach((t) => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    renderBuyerReport(Number(tab.dataset.buyer));
+  });
+}
+
 window.addEventListener('DOMContentLoaded', () => {
+  gaugeFill.style.strokeDashoffset = '283';
   requestAnimationFrame(() => {
-    setTimeout(() => {
-      const needle = document.getElementById('gaugeNeedle');
-      const fill = document.querySelector('.gauge-fill');
-      if (needle) needle.style.transform = 'rotate(28deg)';
-      if (fill) fill.style.strokeDashoffset = '145';
-    }, 350);
+    setTimeout(() => renderBuyerReport(0), 350);
   });
 });
 
