@@ -6,51 +6,51 @@ plus CSS and JS, meant to explain the product and collect interest until the rea
 
 ## Viewing it locally
 
-You don't need to install anything to look at it, but opening `index.html` directly from disk
-will block the contact form (browsers restrict `fetch` from `file://` pages). Serve it with any
-simple local server instead:
+The static pages (everything except the contact form's send step) can be viewed with any simple
+local server, e.g. `python -m http.server 5500` from this folder, then open
+`http://localhost:5500`. Opening `index.html` directly from disk works for browsing but the
+contact form won't be able to reach `/api/contact` (that route only exists when served by Vercel
+or `vercel dev`, see below).
 
-**Option A — Python (already on most machines):**
-```
-cd marketing-site
-python -m http.server 5500
-```
-Then open `http://localhost:5500` in your browser.
-
-**Option B — Node, if you have it:**
-```
-cd marketing-site
-npx serve .
-```
-
-**Option C — VS Code:** install the "Live Server" extension, right-click `index.html`, choose
-"Open with Live Server."
-
-Once it's running, scroll through top to bottom to review each section in order: Hero, Problem/
-Solution, How It Works, Features, Pricing, FAQ, Contact, Footer. Click "Get Started" or "Login" in
-the header to see the placeholder modal (both buttons are intentionally not wired to a real
-account system yet).
+Scroll through top to bottom to review each section in order: Hero, Problem/Solution, How It
+Works, Features, Pricing, Contact, FAQ, Footer. Click "Get Started" or "Login" in the header to
+see the placeholder modal (both buttons are intentionally not wired to a real account system yet).
 
 ## Contact form
 
-The form on the Contact section posts to [FormSubmit](https://formsubmit.co/), a free
-form-to-email service that needs no backend, no signup, and no API key: it just forwards
-submissions to `support@creditkawach.com`.
+The form posts to `/api/contact`, a Vercel serverless function ([api/contact.js](api/contact.js))
+that calls [Postmark](https://postmarkapp.com/)'s API server-side to send the message to
+`support@creditkawach.com`. The Postmark Server API token lives only in the `POSTMARK_SERVER_TOKEN`
+environment variable, set in the Vercel project's settings (or a local `.env` file for `vercel
+dev`), never in frontend code and never committed to this repo.
 
-**One-time activation step:** the first time the form is submitted, FormSubmit sends a
-confirmation email to `support@creditkawach.com` with an activation link. Someone with access to
-that inbox needs to click it once. After that, every future submission is delivered straight to
-the inbox automatically. Until it's activated, submissions will still succeed on the frontend but
-won't be delivered yet.
+**The `From` address matters.** The function sends `From: support@creditkawach.com`. Postmark
+rejects sends from any address that isn't a verified Sender Signature (or on a verified domain) in
+your Postmark account. If `support@creditkawach.com` isn't already verified there, either verify it
+or change the `From` in `api/contact.js` to an address that is.
+
+**Testing it:**
+1. Push this repo to GitHub (already done), then import it into Vercel ([vercel.com/new](https://vercel.com/new)) as a new project. Vercel auto-detects the static site plus the `api/` function, no build config needed.
+2. In the Vercel project's Settings → Environment Variables, add `POSTMARK_SERVER_TOKEN` with your Postmark Server API token as the value.
+3. Deploy. Visit the resulting `*.vercel.app` URL, scroll to Contact, and submit the form with a real email address.
+4. Check the `support@creditkawach.com` inbox for the message, and check the visitor's inbox got nothing (the function doesn't email the visitor, it just sets `ReplyTo` so you can reply directly).
+5. If it fails, check the function's logs in the Vercel dashboard (Deployments → the deployment → Functions → `api/contact`), Postmark's API returns a clear error message (most likely cause: unverified `From` address, see above).
+
+If you have Node.js and the Vercel CLI installed locally, `vercel dev` in this folder serves the
+static site and the API function together on one local port, so you can test the whole flow
+without deploying first.
 
 ## Project structure
 
 ```
 marketing-site/
-  index.html       All page sections
-  css/styles.css    Styling, layout, animations
-  js/main.js        Scroll reveal, mobile nav, FAQ accordion, modal, contact form
-  assets/           (empty, for future images/logo files)
+  index.html        All page sections
+  css/styles.css     Styling, layout, animations
+  js/main.js         Scroll reveal, mobile nav, FAQ accordion, modal, contact form
+  api/contact.js     Serverless function: receives the form POST, calls Postmark
+  assets/            Logo files
+  package.json       Marks this as a Node project for Vercel (no dependencies needed)
+  .env.example       Documents the POSTMARK_SERVER_TOKEN env var (no real value)
 ```
 
 ## Editing content

@@ -229,8 +229,13 @@ contactForm.addEventListener('submit', async (e) => {
   try {
     const res = await fetch(contactForm.action, {
       method: 'POST',
-      headers: { Accept: 'application/json' },
-      body: new FormData(contactForm),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: contactForm.name.value,
+        email: contactForm.email.value,
+        message: contactForm.message.value,
+        _honey: contactForm._honey.value,
+      }),
     });
 
     if (res.ok) {
