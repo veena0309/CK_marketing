@@ -6,6 +6,7 @@
   --teal: #2A5CA8;
   --teal-dark: #1B3D73;
   --teal-soft: #E8EFF8;
+  --teal-on-navy: #6FA8E0;
   --bg: #FBFDFD;
   --bg-alt: #F2F7F6;
   --ink: #142433;
@@ -555,14 +556,14 @@ img, svg { display: block; max-width: 100%; }
   background: var(--navy);
   box-shadow: var(--shadow-md);
 }
-.compare-new .compare-eyebrow { color: var(--teal); }
+.compare-new .compare-eyebrow { color: var(--teal-on-navy); }
 .compare-new h3 { color: white; }
 .compare-list-good li { color: #D7E4EC; }
 .compare-list-good li::before {
   content: "\2713";
   position: absolute;
   left: 0;
-  color: var(--teal);
+  color: var(--teal-on-navy);
   font-weight: 800;
 }
 .compare-tagline {
@@ -696,7 +697,7 @@ section { padding: 100px 0; }
   height: 52px;
   border-radius: 14px;
   background: var(--navy);
-  color: var(--teal);
+  color: var(--teal-on-navy);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -719,9 +720,15 @@ section { padding: 100px 0; }
   font-family: var(--font-head);
   font-weight: 700;
   font-size: 0.95rem;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-.grade-chip.active { background: var(--teal); color: var(--navy); transform: scale(1.08); }
+.grade-chip:hover:not(.active) { background: var(--border); color: var(--navy); transform: translateY(-2px); }
+.grade-chip:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.grade-chip.active { background: var(--teal); color: white; transform: scale(1.08); }
+.grade-chip.active:hover { background: var(--teal-dark); }
 .feature-card:hover .grade-chip.active { box-shadow: 0 0 0 4px var(--teal-soft); }
 .grade-note { font-size: 0.86rem; color: var(--teal-dark); font-weight: 600; margin: 0; }
 
@@ -817,7 +824,7 @@ section { padding: 100px 0; }
   color: var(--teal-dark);
   margin: 0 0 10px;
 }
-.price-card-featured .price-eyebrow { color: var(--teal); }
+.price-card-featured .price-eyebrow { color: var(--teal-on-navy); }
 .price-amount {
   font-family: var(--font-head);
   font-size: 2rem;

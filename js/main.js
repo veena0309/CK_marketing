@@ -122,6 +122,32 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// ---------- Feature card: interactive grade selector ----------
+const gradeNotes = {
+  A: 'Strong payer. Extend your standard 30 to 60 day terms with confidence.',
+  B: 'Reliable, with occasional delays. Standard terms are fine, just keep an eye on ageing invoices.',
+  C: 'Mixed payment history. Shorter terms or a partial advance is the safer call.',
+  D: 'Weak repayment pattern. Ask for advance payment or tighten your terms.',
+  E: 'High default risk. Cash on delivery, or walk away.',
+};
+
+const gradeSelector = document.getElementById('gradeSelector');
+const gradeNote = document.getElementById('gradeNote');
+
+if (gradeSelector) {
+  gradeSelector.addEventListener('click', (e) => {
+    const chip = e.target.closest('.grade-chip');
+    if (!chip) return;
+    gradeSelector.querySelectorAll('.grade-chip').forEach((c) => {
+      c.classList.remove('active');
+      c.setAttribute('aria-pressed', 'false');
+    });
+    chip.classList.add('active');
+    chip.setAttribute('aria-pressed', 'true');
+    gradeNote.textContent = gradeNotes[chip.dataset.grade];
+  });
+}
+
 // ---------- FAQ accordion ----------
 document.querySelectorAll('.faq-question').forEach((btn) => {
   btn.addEventListener('click', () => {
