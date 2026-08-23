@@ -3,9 +3,9 @@
   --navy: #0B2E4F;
   --navy-2: #123A63;
   --navy-soft: #E8EEF3;
-  --teal: #14B8A6;
-  --teal-dark: #0E9488;
-  --teal-soft: #E3F7F4;
+  --teal: #2A5CA8;
+  --teal-dark: #1B3D73;
+  --teal-soft: #E8EFF8;
   --bg: #FBFDFD;
   --bg-alt: #F2F7F6;
   --ink: #142433;
@@ -85,13 +85,13 @@ img, svg { display: block; max-width: 100%; }
 .btn-primary {
   background: var(--teal);
   color: var(--navy);
-  box-shadow: 0 6px 18px rgba(20, 184, 166, 0.35);
+  box-shadow: 0 6px 18px rgba(42, 92, 168, 0.35);
 }
 .btn-primary:hover {
   background: var(--teal-dark);
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(20, 184, 166, 0.4);
+  box-shadow: 0 10px 24px rgba(42, 92, 168, 0.4);
 }
 
 .btn-outline {
@@ -954,7 +954,7 @@ section { padding: 100px 0; }
 .contact-form textarea:focus {
   outline: none;
   border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15);
+  box-shadow: 0 0 0 3px rgba(42, 92, 168, 0.15);
 }
 .contact-form button { margin-top: 22px; }
 .honeypot { position: absolute; left: -9999px; opacity: 0; }
