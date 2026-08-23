@@ -149,7 +149,7 @@ img, svg { display: block; max-width: 100%; }
   color: var(--navy);
   text-decoration: none;
 }
-.brand-mark { width: 32px; height: 32px; }
+.brand-mark { width: auto; height: 34px; }
 
 .main-nav {
   display: flex;
@@ -979,11 +979,11 @@ section { padding: 100px 0; }
 }
 .footer-brand { display: flex; align-items: flex-start; gap: 14px; }
 .footer-brand .brand-mark {
-  width: 40px;
-  height: 40px;
+  width: auto;
+  height: 30px;
   background: rgba(255,255,255,0.06);
   border-radius: 10px;
-  padding: 6px;
+  padding: 8px 10px;
   flex-shrink: 0;
 }
 .footer-brand-name { font-family: var(--font-head); font-weight: 700; color: white; margin-bottom: 6px; }
