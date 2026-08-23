@@ -3,10 +3,10 @@
   --navy: #0B2E4F;
   --navy-2: #123A63;
   --navy-soft: #E8EEF3;
-  --teal: #2A5CA8;
-  --teal-dark: #1B3D73;
-  --teal-soft: #E8EFF8;
-  --teal-on-navy: #6FA8E0;
+  --teal: #00B8CC;
+  --teal-dark: #027E8C;
+  --teal-soft: #E1F6F9;
+  --teal-on-navy: #4DD3E3;
   --bg: #FBFDFD;
   --bg-alt: #F2F7F6;
   --ink: #142433;
@@ -86,13 +86,13 @@ img, svg { display: block; max-width: 100%; }
 .btn-primary {
   background: var(--teal);
   color: var(--navy);
-  box-shadow: 0 6px 18px rgba(42, 92, 168, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 184, 204, 0.35);
 }
 .btn-primary:hover {
   background: var(--teal-dark);
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(42, 92, 168, 0.4);
+  box-shadow: 0 10px 24px rgba(0, 184, 204, 0.4);
 }
 
 .btn-outline {
@@ -236,12 +236,19 @@ img, svg { display: block; max-width: 100%; }
 .hero::before {
   content: "";
   position: absolute;
-  top: -180px;
-  right: -180px;
-  width: 520px;
-  height: 520px;
-  background: radial-gradient(circle, var(--teal-soft) 0%, transparent 70%);
+  inset: -1px;
+  background-image:
+    linear-gradient(160deg, rgba(0, 184, 204, 0.10) 0%, rgba(0, 184, 204, 0.02) 45%, transparent 70%),
+    repeating-linear-gradient(0deg, rgba(11, 46, 79, 0.055) 0, rgba(11, 46, 79, 0.055) 1px, transparent 1px, transparent 48px),
+    repeating-linear-gradient(90deg, rgba(11, 46, 79, 0.055) 0, rgba(11, 46, 79, 0.055) 1px, transparent 1px, transparent 48px);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 15%, black 45%, transparent 100%);
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 15%, black 45%, transparent 100%);
+  animation: hero-grid-drift 22s ease-in-out infinite;
   z-index: -1;
+}
+@keyframes hero-grid-drift {
+  0%, 100% { background-position: 0 0, 0 0, 0 0; }
+  50% { background-position: 0 0, 6px 10px, 10px 6px; }
 }
 
 .hero-inner {
@@ -299,7 +306,7 @@ img, svg { display: block; max-width: 100%; }
   font-family: var(--font-head);
   font-weight: 800;
   font-size: 1.3rem;
-  color: var(--navy);
+  color: var(--teal-dark);
 }
 .hero-stat-label { font-size: 0.82rem; color: var(--ink-light); max-width: 140px; }
 
@@ -961,7 +968,7 @@ section { padding: 100px 0; }
 .contact-form textarea:focus {
   outline: none;
   border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(42, 92, 168, 0.15);
+  box-shadow: 0 0 0 3px rgba(0, 184, 204, 0.15);
 }
 .contact-form button { margin-top: 22px; }
 .honeypot { position: absolute; left: -9999px; opacity: 0; }
