@@ -37,7 +37,7 @@ revealTargets.forEach((el) => revealObserver.observe(el));
 
 // ---------- Hero buyer risk report: tabs ----------
 // Bar fill widths are keyed off the letter grade, not a raw numeric score.
-const GRADE_FILL = { A: 92, B: 72, C: 52, D: 32, E: 18 };
+const GRADE_FILL = { A: 92, B: 72, C: 52, D: 32 };
 
 const buyerReports = [
   {
@@ -130,8 +130,7 @@ const gradeNotes = {
   A: 'Strong payer. Extend your standard 30 to 60 day terms with confidence.',
   B: 'Reliable, with occasional delays. Standard terms are fine, just keep an eye on ageing invoices.',
   C: 'Mixed payment history. Shorter terms or a partial advance is the safer call.',
-  D: 'Weak repayment pattern. Ask for advance payment or tighten your terms.',
-  E: 'High default risk. Cash on delivery, or walk away.',
+  D: 'High default risk. Cash on delivery, or walk away.',
 };
 
 const gradeSelector = document.getElementById('gradeSelector');
