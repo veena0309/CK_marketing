@@ -1131,7 +1131,7 @@ section { padding: 100px 0; }
   .header-actions .btn-primary { display: none; }
 
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-visual { margin-top: 40px; order: -1; }
+  .hero-visual { margin-top: 40px; }
   .hero-copy { text-align: center; }
   .hero-sub { margin-left: auto; margin-right: auto; }
   .hero-cta { justify-content: center; }
@@ -1159,10 +1159,57 @@ section { padding: 100px 0; }
 }
 
 @media (max-width: 560px) {
-  section { padding: 70px 0; }
-  .hero { padding: 50px 0 70px; }
+  .wrap { padding: 0 18px; }
+  section { padding: 56px 0; }
+
+  .header-inner { height: 64px; }
+  .brand { font-size: 1.02rem; gap: 8px; }
+  .brand-mark { height: 28px; }
+
+  .hero { padding: 36px 0 52px; }
+  .eyebrow { font-size: 0.7rem; padding: 5px 12px; letter-spacing: 0.05em; }
+  .hero h1 { font-size: 1.9rem; }
+  .hero-sub { font-size: 1rem; }
+  .hero-stats { gap: 16px 24px; }
+  .hero-stat-label { max-width: 120px; }
+
+  .report-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin: 0 -18px 14px;
+    padding: 0 18px 4px;
+    width: auto;
+  }
+  .report-tabs::-webkit-scrollbar { display: none; }
+  .report-tab { flex: 0 0 auto; font-size: 0.75rem; padding: 8px 14px; }
+  .report-card { padding: 22px 20px 20px; max-width: 100%; }
+  .report-bar-row { grid-template-columns: 96px 1fr 22px; gap: 8px; }
+  .report-bar-label { font-size: 0.72rem; }
   .floating-chip { display: none; }
-  .report-tabs { flex-wrap: wrap; }
+
+  .stat-item { padding-left: 14px; }
+  .compare-card { padding: 22px 20px; }
+
+  .step-card { padding: 18px 18px 16px; }
+  .step-num { width: 36px; height: 36px; font-size: 0.85rem; }
+  .step { grid-template-columns: 36px 1fr; gap: 14px; }
+  .step-line { left: 18px; }
+
+  .feature-card { padding: 24px 20px; }
+  .section-head-left { margin-bottom: 32px; }
+
+  .price-card { padding: 26px 22px; }
+
+  .contact-form { padding: 24px 20px; }
+
+  .footer-top { gap: 28px; }
+
+  .modal { padding: 28px 22px 24px; }
+  .modal-overlay { padding: 16px; }
+
   .tally-row { grid-template-columns: 40px 1fr auto; }
   .tally-amt { display: none; }
 }

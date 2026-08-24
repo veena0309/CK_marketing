@@ -10,6 +10,7 @@ module.exports = async function handler(req, res) {
   const body = req.body || {};
   const name = typeof body.name === 'string' ? body.name.trim() : '';
   const email = typeof body.email === 'string' ? body.email.trim() : '';
+  const phone = typeof body.phone === 'string' ? body.phone.trim() : '';
   const message = typeof body.message === 'string' ? body.message.trim() : '';
 
   // Honeypot: bots fill this hidden field, humans never see it. Pretend success.
@@ -40,7 +41,7 @@ module.exports = async function handler(req, res) {
         To: TO_ADDRESS,
         ReplyTo: email,
         Subject: `New message from ${name} via the Credit Kawach marketing site`,
-        TextBody: `Name: ${name}\nEmail: ${email}\n\n${message}`,
+        TextBody: `Name: ${name}\nEmail: ${email}\nMobile: ${phone || 'Not provided'}\n\n${message}`,
         MessageStream: 'outbound',
       }),
     });

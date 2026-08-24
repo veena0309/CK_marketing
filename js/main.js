@@ -36,39 +36,42 @@ const revealObserver = new IntersectionObserver(
 revealTargets.forEach((el) => revealObserver.observe(el));
 
 // ---------- Hero buyer risk report: tabs ----------
+// Bar fill widths are keyed off the letter grade, not a raw numeric score.
+const GRADE_FILL = { A: 92, B: 72, C: 52, D: 32, E: 18 };
+
 const buyerReports = [
   {
     company: 'Sharma Textiles Pvt. Ltd.',
     meta: 'GSTIN 27AAACS1234F1Z5 · Mumbai',
-    score: 742,
+    gradeLetter: 'A',
     fillOffset: 55,
-    bars: [88, 81, 68],
+    bars: ['A', 'A', 'B'],
     grade: 'A · Low risk',
     gradeRisky: false,
     kycChip: 'KYC verified',
-    riskChip: 'Risk unchanged · 30d',
+    riskChip: 'Risk unchanged · 90d',
   },
   {
     company: 'Mehta Traders',
     meta: 'GSTIN 24AABCM5678K1Z2 · Ahmedabad',
-    score: 671,
+    gradeLetter: 'B',
     fillOffset: 120,
-    bars: [70, 64, 72],
+    bars: ['B', 'B', 'B'],
     grade: 'B · Moderate risk',
     gradeRisky: false,
     kycChip: 'KYC verified',
-    riskChip: 'Risk unchanged · 30d',
+    riskChip: 'Risk unchanged · 90d',
   },
   {
     company: 'Kulkarni Bros.',
     meta: 'GSTIN 27AACCK4321P1Z9 · Pune',
-    score: 588,
+    gradeLetter: 'D',
     fillOffset: 175,
-    bars: [52, 41, 58],
+    bars: ['D', 'C', 'D'],
     grade: 'D · High risk',
     gradeRisky: true,
     kycChip: 'KYC verified',
-    riskChip: 'Risk rising · 30d',
+    riskChip: 'Risk rising · 90d',
   },
 ];
 
@@ -86,7 +89,7 @@ function renderBuyerReport(index) {
   const data = buyerReports[index];
   reportCompany.textContent = data.company;
   reportMeta.textContent = data.meta;
-  gaugeScore.textContent = data.score;
+  gaugeScore.textContent = data.gradeLetter;
   gaugeFill.style.strokeDashoffset = String(data.fillOffset);
   reportGradeBadge.textContent = data.grade;
   reportGradeBadge.classList.toggle('grade-risky', data.gradeRisky);
@@ -95,9 +98,9 @@ function renderBuyerReport(index) {
 
   const barFills = reportBars.querySelectorAll('.report-bar-fill');
   const barNums = reportBars.querySelectorAll('.report-bar-num');
-  data.bars.forEach((val, i) => {
-    barFills[i].style.width = val + '%';
-    barNums[i].textContent = val;
+  data.bars.forEach((grade, i) => {
+    barFills[i].style.width = GRADE_FILL[grade] + '%';
+    barNums[i].textContent = grade;
   });
 }
 
@@ -233,6 +236,7 @@ contactForm.addEventListener('submit', async (e) => {
       body: JSON.stringify({
         name: contactForm.name.value,
         email: contactForm.email.value,
+        phone: contactForm.phone.value,
         message: contactForm.message.value,
         _honey: contactForm._honey.value,
       }),
